@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=H, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function myFucn(){
+        var xmlHTTP= new XMLHttpRequest();
+        xmlHTTP.open('GET', 'https://restcountries.com/v3.1/all', true)
+        xmlHTTP.send();
+
+        xmlHTTP.onreadystatechange=function(){
+            // console.log(xmlHTTP.responseText);
+            var jsonData = JSON.parse(xmlHTTP.responseText)
+            // console.log(jsonData);
+            jsonData.forEach((country)=>{
+            console.log('flag =', country.flag);
+            }
+            )
+        }
+    }
+    myFucn();
+
+</script>
+<body>
+</body>
+</html>
